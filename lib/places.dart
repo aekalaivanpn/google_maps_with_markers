@@ -17,56 +17,51 @@ class Places {
 
 final List<Places> placesOfInterest = [
   Places(
-    name: 'Marudhamalai',
-    address: 'Coimbatore - 641 046',
-    description:
-    'Lord Murugan temple built by Tamil kings during the Sangam period.',
+    name: 'Madhumitha',
+    address: 'Senior Manager',
+    description: '3.2/5',
     thumbnail:
-    'https://upload.wikimedia.org/wikipedia/commons/e/eb/Maruthamalai_Rajagopuram.jpg',
+    'https://static.vecteezy.com/system/resources/thumbnails/001/993/889/small_2x/beautiful-latin-woman-avatar-character-icon-free-vector.jpg',
     coordinates: LatLng(11.046111, 76.851944),
   ),
   Places(
-    name: 'Siruvani Waterfalls',
-    address: 'Coimbatore - 641 114',
-    description:
-    'Siruvani Waterfalls and the dam named after them are located 36 km in the Western Ghats.',
+    name: 'Manoj Jayabalan',
+    address: 'Senior Executive',
+    description: '4.5/5',
     thumbnail:
-    'https://upload.wikimedia.org/wikipedia/commons/9/98/Siruvani_Falls_above_bathing_area.jpg',
+    'https://t4.ftcdn.net/jpg/02/23/50/73/240_F_223507324_jKl7xbsaEdUjGr42WzQeSazKRighVDU4.jpg',
     coordinates: LatLng(10.938011, 76.687177),
   ),
   Places(
-    name: 'Prozone Mall',
-    address: 'Coimbatore - 641 035',
-    description:
-    'Prozone Mall is one of the largest vertically designed shopping malls, covering over 500,000 sq ft.',
+    name: 'Stella Mary',
+    address: 'Assistant Manager',
+    description: '4.3/5',
     thumbnail:
-    'https://www.ourcities.in/wp-content/uploads/2020/05/lifestyle-Prozone-mall-coimbatore.jpg',
+    'https://static.vecteezy.com/system/resources/thumbnails/001/993/889/small_2x/beautiful-latin-woman-avatar-character-icon-free-vector.jpg',
     coordinates: LatLng(11.05523, 76.993875),
   ),
   Places(
-    name: 'Black Thunder Theme Park',
-    address: 'Ooty road, Coimbatore - 641 305',
-    description:
-    'Black Thunder is a water theme park. It is situated at the foot of Nilgiris.',
+    name: 'Harry Paul Melvin',
+    address: 'Team Leader',
+    description: '3.9/5',
     thumbnail:
-    'https://www.prabutourstravels.com/assets/images/large/blackthunder1.jpg',
+    'https://t4.ftcdn.net/jpg/02/23/50/73/240_F_223507324_jKl7xbsaEdUjGr42WzQeSazKRighVDU4.jpg',
     coordinates: LatLng(11.019349, 76.54476),
   ),
   Places(
-    name: 'Maharaja Theme Park',
-    address: 'Coimbatore - 641 062',
-    description:
-    'Maharaja Theme Park is an amusement park that also has movie screens attached with it.',
+    name: 'Harshavarthini',
+    address: 'Team Leader',
+    description: '2.8/5',
     thumbnail:
-    'https://ak.jogurucdn.com/media/image/p25/place-2017-07-14-6-9ded2340da3a4190a43d54913b2ffdae.jpg',
+    'https://static.vecteezy.com/system/resources/thumbnails/001/993/889/small_2x/beautiful-latin-woman-avatar-character-icon-free-vector.jpg',
     coordinates: LatLng(11.0591, 77.0943),
   ),
   Places(
-    name: 'VOC Park & Zoo',
-    address: 'Coimbatore - 641 018',
-    description: 'V.O.Chidambaranar park and zoo is a zoological garden.',
+    name: 'Karthick Naren',
+    address: 'Regional Manager',
+    description: '4.8/5',
     thumbnail:
-    'https://www.holidify.com/images/cmsuploads/compressed/800px-Voc_Zoo_Front_View_20200130105058.jpg',
+    'https://t4.ftcdn.net/jpg/02/23/50/73/240_F_223507324_jKl7xbsaEdUjGr42WzQeSazKRighVDU4.jpg',
     coordinates: LatLng(11.005718, 76.970914),
   ),
 ];
