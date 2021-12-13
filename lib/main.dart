@@ -6,7 +6,6 @@ import 'package:google_maps_with_markers/places.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,7 +16,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MapScreen extends StatefulWidget {
-
   @override
   _MapScreenState createState() => _MapScreenState();
 }
@@ -26,7 +24,12 @@ class _MapScreenState extends State<MapScreen> {
 
   List<Marker> allMarkers = [];
 
-  CustomInfoWindowController _customInfoWindowController = CustomInfoWindowController();
+  CustomInfoWindowController _customInfoWindowController =
+      CustomInfoWindowController();
+
+  static const _initialCameraPosition = CameraPosition(
+      target: LatLng(11.0168, 76.9558),
+      zoom: 11.0);
 
   @override
   void dispose() {
@@ -48,14 +51,15 @@ class _MapScreenState extends State<MapScreen> {
               height: double.infinity,
               width: double.infinity,
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10.0),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black54,
-                      offset: Offset(0.0, 4.0),
-                      blurRadius: 10.0,
-                    ),
-                  ]),
+                borderRadius: BorderRadius.circular(10.0),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black54,
+                    offset: Offset(0.0, 4.0),
+                    blurRadius: 10.0,
+                  ),
+                ],
+              ),
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
@@ -88,16 +92,17 @@ class _MapScreenState extends State<MapScreen> {
                             style: TextStyle(
                                 fontSize: 18.0,
                                 fontWeight: FontWeight.bold,
-                                fontFamily: 'sans-serif'),
+                                fontFamily: 'LibreBold'),
                           ),
                           SizedBox(height: 5.0),
                           Text(
-                            element.address,
+                            element.designation,
                             style: TextStyle(
                                 fontSize: 13.0,
-                                fontWeight: FontWeight.w500,
-                                fontFamily: 'San Francisco'),
+                                fontWeight: FontWeight.w600,
+                                fontFamily: 'Comforta'),
                           ),
+                          SizedBox(height: 3.0),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -106,20 +111,21 @@ class _MapScreenState extends State<MapScreen> {
                                 Icons.star,
                                 color: Colors.amber,
                               ),
+                              SizedBox(width: 5.0),
                               Text(
-                                element.description,
+                                element.rating,
                                 style: TextStyle(
-                                    fontSize: 17.0,
+                                    fontSize: 15.0,
                                     fontWeight: FontWeight.w500,
-                                    fontFamily: 'San Francisco'),
+                                    fontFamily: 'Comforta'),
                               ),
                             ],
                           ),
                           SizedBox(height: 7.0),
-                          Divider(thickness: 1.0,height: 1.0),
+                          Divider(thickness: 1.0, height: 1.0),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.end,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               IconButton(
                                 onPressed: () {},
@@ -142,13 +148,6 @@ class _MapScreenState extends State<MapScreen> {
                                       'https://w7.pngwing.com/pngs/672/164/png-transparent-whatsapp-icon-whatsapp-logo-computer-icons-zubees-halal-foods-whatsapp-text-circle-unified-payments-interface-thumbnail.png'),
                                 ),
                               ),
-                              IconButton(
-                                onPressed: () {},
-                                icon: CircleAvatar(
-                                  foregroundImage: NetworkImage(
-                                      'https://i.stack.imgur.com/rRITT.png'),
-                                ),
-                              ),
                             ],
                           ),
                         ],
@@ -168,40 +167,38 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.redAccent,
-          title: Text('Places of Interest in Coimbatore'),
-          centerTitle: true,
-        ),
-        body: Stack(
-            children: <Widget>[
-              Container(
-                height: MediaQuery.of(context).size.height - 50.0,
-                width: MediaQuery.of(context).size.width,
-                child: GoogleMap(
-                  onTap: (position) {
-                    _customInfoWindowController.hideInfoWindow!();
-                  },
-                  onCameraMove: (position) {
-                    _customInfoWindowController.onCameraMove!();
-                  },
-                  onMapCreated: (GoogleMapController controller) async {
-                    _customInfoWindowController.googleMapController = controller;
-                  },
-                  initialCameraPosition: CameraPosition(target: LatLng(11.0168, 76.9558),
-                  zoom: 11.0
-                  ),
-                  markers: Set.from(allMarkers),
-                ),
-              ),
-              CustomInfoWindow(
-                controller: _customInfoWindowController,
-                height: 130,
-                width: 300,
-                offset: 50,
-              ),
-            ],
-        ),
+      appBar: AppBar(
+        backgroundColor: Colors.redAccent,
+        title: Text('Employee Locations'),
+        centerTitle: true,
+      ),
+      body: Stack(
+        children: <Widget>[
+          Container(
+            height: MediaQuery.of(context).size.height - 50.0,
+            width: MediaQuery.of(context).size.width,
+            child: GoogleMap(
+              onTap: (position) {
+                _customInfoWindowController.hideInfoWindow!();
+              },
+              onCameraMove: (position) {
+                _customInfoWindowController.onCameraMove!();
+              },
+              onMapCreated: (GoogleMapController controller) async {
+                _customInfoWindowController.googleMapController = controller;
+              },
+              initialCameraPosition: _initialCameraPosition,
+              markers: Set.from(allMarkers),
+            ),
+          ),
+          CustomInfoWindow(
+            controller: _customInfoWindowController,
+            height: 135,
+            width: 300,
+            offset: 50,
+          ),
+        ],
+      ),
     );
   }
 }
